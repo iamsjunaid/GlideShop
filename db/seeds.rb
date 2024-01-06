@@ -1,16 +1,15 @@
 # seeds.rb
 
-# Clear existing data
-Product.destroy_all
-User.destroy_all
+# Creating users
+User.create(name: "User1", email: "user1@example.com", password_digest: "password1")
+User.create(name: "User2", email: "user2@example.com", password_digest: "password2")
 
-# Create users
-user1 = User.create(name: 'John Doe', email: 'john@example.com', password_digest: 'password')
-user2 = User.create(name: 'Jane Smith', email: 'jane@example.com', password_digest: 'password')
-# Add more users as needed
+# Creating products
+Product.create(name: "Product1", price: 19.99)
+Product.create(name: "Product2", price: 29.99)
 
-# Create products associated with users
-Product.create(name: 'Product A', price: 19.99, user: user1)
-Product.create(name: 'Product B', price: 29.99, user: user1)
-Product.create(name: 'Product C', price: 39.99, user: user2)
-# Add more products as needed
+# Creating orders
+Order.create(user_id: User.first.id, product_id: Product.first.id, address: "123 Main St", amount: 19.99, status: "Pending", created_at: Time.current, updated_at: Time.current)
+Order.create(user_id: User.second.id, product_id: Product.second.id, address: "456 Oak St", amount: 29.99, status: "Pending", created_at: Time.current, updated_at: Time.current)
+
+puts "Seed data has been created successfully!"
