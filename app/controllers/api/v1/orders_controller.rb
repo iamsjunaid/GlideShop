@@ -1,3 +1,5 @@
+class Api::V1::OrdersController < ApplicationController
+  before_action :find_order, only: %i[show, update, destroy]
   
   def index
     @orders = Order.all
@@ -37,3 +39,4 @@
   def find_order
     @order = Order.find(params[:id])
   end
+end
