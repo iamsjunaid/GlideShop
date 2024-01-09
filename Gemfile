@@ -5,7 +5,7 @@ ruby '3.2.2'
 
 gem 'devise'
 gem 'devise-jwt'
-
+gem 'jsonapi-serializer'
 gem 'pg'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
