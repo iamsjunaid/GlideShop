@@ -5,16 +5,10 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(current_user, _opts = {})
-    if current_user.present?
-      render json: {
-        status: { code: 200, message: 'Logged in successfully.' },
-        data: { user: UserSerializer.new(current_user).serializable_hash[:data][:attributes] }
-      }, status: status_code
-    else
-      render json: {
-        status: { code: 401, message: 'Unauthorized. Please check your credentials.' }
-      }, status: :unauthorized
-    end
+    render json: {
+      status: { code: 200, message: 'Logged in sucessfully.' },
+      data: { user: UserSerializer.new(current_user).serializable_hash[:data][:attributes] }
+    }, status: :ok
   end
 
   def respond_to_on_destroy
